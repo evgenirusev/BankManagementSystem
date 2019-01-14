@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-BankManagementSystem.Web-386B7142-EDD6-40C4-8F59-7489E0278E3A</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\BankManagementSystem.Data\BankManagementSystem.Data.csproj" />
+    <ProjectReference Include="..\BankManagementSystem.Models\BankManagementSystem.Models.csproj" />
+  </ItemGroup>
+
+</Project>

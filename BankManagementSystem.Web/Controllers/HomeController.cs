@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BankManagementSystem.Models;
 
-namespace BankManagementSystem.Controllers
+namespace BankManagementSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
