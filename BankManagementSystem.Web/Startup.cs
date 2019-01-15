@@ -43,6 +43,19 @@ namespace BankManagementSystem.Web
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password = new PasswordOptions()
+                {
+                    RequiredLength = 4,
+                    RequiredUniqueChars = 1,
+                    RequireDigit = true,
+                    RequireLowercase = false,
+                    RequireNonAlphanumeric = false,
+                    RequireUppercase = false
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
