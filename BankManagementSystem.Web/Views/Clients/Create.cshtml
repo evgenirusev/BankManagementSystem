@@ -1,2 +1,28 @@
 ﻿@model BankManagementSystem.Common.BindingModels.Client.CreateClientBindingModel
-<h3 class="text-center m-3">Create a new Client</h3>
+
+<h2 class="text-center">Create Client</h2>
+<div class="offset-md-3 col-md-6 offset-md-3">
+    <form method="post">
+        <div class="form-group">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" type="text" placeholder="Enter Client Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" type="text" placeholder="Enter Client Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate"></label>
+                <input asp-for="BirthDate" type="date" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Balance"></label>
+                <input asp-for="Balance" type="number" step="0.01" class="form-control" />
+            </div>
+            <div>
+                <input type="submit" value="Save Client" class="btn btn-warning btn-block" />
+            </div>
+        </div>
+    </form>
+</div>

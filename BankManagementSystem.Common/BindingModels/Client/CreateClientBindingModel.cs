@@ -4,7 +4,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    class CreateClientBindingModel
+    public class CreateClientBindingModel
     {
         [Required]
         [StringLength(ModelLenghtConstants.NameMaxLength, MinimumLength = ModelLenghtConstants.NameMinLength)]

@@ -13,6 +13,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\BankManagementSystem.Common\BankManagementSystem.Common.csproj" />
     <ProjectReference Include="..\BankManagementSystem.Data\BankManagementSystem.Data.csproj" />
     <ProjectReference Include="..\BankManagementSystem.Models\BankManagementSystem.Models.csproj" />
   </ItemGroup>
