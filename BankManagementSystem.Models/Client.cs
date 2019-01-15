@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace BankManagementSystem.Models
+﻿namespace BankManagementSystem.Models
 {
-    class Client
+    using System.Collections.Generic;
+
+    public class Client
     {
         public Client()
         {

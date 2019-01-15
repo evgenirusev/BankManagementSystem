@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BankManagementSystem.Models
+﻿namespace BankManagementSystem.Models
 {
-    class CreditCard
+    using System;
+
+    public class CreditCard
     {
         public int Id { get; set; }
 
         public string Number { get; set; }
 
-        public string ClientId { get; set; }
+        public string CVV { get; set; }
+
+        public DateTime ExpirationDate { get; set; }
+
+        public int ClientId { get; set; }
         public Client Client { get; set; }
     }
 }

@@ -1,11 +1,8 @@
-﻿using BankManagementSystem.Models.Enum;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BankManagementSystem.Models
+﻿namespace BankManagementSystem.Models
 {
-    class Asset
+    using BankManagementSystem.Models.Enum;
+
+    public class Asset
     {
         public int Id { get; set; }
 
@@ -13,7 +10,7 @@ namespace BankManagementSystem.Models
 
         public AssetCategories AssetCategory { get; set; }
 
-        public string ClientId { get; set; }
+        public int ClientId { get; set; }
         public Client Client { get; set; }
     }
 }

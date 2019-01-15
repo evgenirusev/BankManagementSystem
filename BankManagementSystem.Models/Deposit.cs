@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BankManagementSystem.Models
+﻿namespace BankManagementSystem.Models
 {
-    class Deposit
+    public class Deposit
     {
         public int Id { get; set; }
 
@@ -12,7 +8,7 @@ namespace BankManagementSystem.Models
 
         public decimal Amount { get; set; }
 
-        public string ClientId { get; set; }
+        public int ClientId { get; set; }
         public Client Client { get; set; }
     }
 }

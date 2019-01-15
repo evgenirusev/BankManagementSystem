@@ -9,4 +9,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BankManagementSystem.Models\BankManagementSystem.Models.csproj" />
+  </ItemGroup>
+
 </Project>
