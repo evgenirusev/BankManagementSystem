@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BankManagementSystem.Web.Controllers
+﻿namespace BankManagementSystem.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using System;
+    using BankManagementSystem.Common.BindingModels.Client;
+
     public class ClientsController : Controller
     {
         public IActionResult Index()
@@ -16,6 +14,19 @@ namespace BankManagementSystem.Web.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(CreateClientBindingModel bindingModel)
+        {
+            if (ModelState.IsValid)
+            {
+                return Json("Successful submit! TODO: Implement client persistence.");
+            }
+            else
+            {
+                return View(bindingModel);
+            }
         }
 
     }

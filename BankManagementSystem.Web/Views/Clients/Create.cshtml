@@ -7,18 +7,22 @@
             <div class="form-group">
                 <label asp-for="Name"></label>
                 <input asp-for="Name" type="text" placeholder="Enter Client Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email"></label>
                 <input asp-for="Email" type="text" placeholder="Enter Client Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BirthDate"></label>
                 <input asp-for="BirthDate" type="date" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Balance"></label>
                 <input asp-for="Balance" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="Balance" class="text-danger"></span>
             </div>
             <div>
                 <input type="submit" value="Save Client" class="btn btn-warning btn-block" />
@@ -26,3 +30,8 @@
         </div>
     </form>
 </div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
