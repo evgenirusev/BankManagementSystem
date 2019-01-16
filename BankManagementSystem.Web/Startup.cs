@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using BankManagementSystem.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using BankManagementSystem.Web.Infrastructure.Extensions;
 
 namespace BankManagementSystem.Web
 {
@@ -35,12 +36,12 @@ namespace BankManagementSystem.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<BankManagementSystemDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("BankManagementSystem")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<BankManagementSystemDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -56,6 +57,9 @@ namespace BankManagementSystem.Web
                     RequireUppercase = false
                 };
             });
+
+            // Add services using reflection
+            services.AddDomainServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

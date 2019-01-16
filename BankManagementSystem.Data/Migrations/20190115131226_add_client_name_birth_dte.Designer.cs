@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BankManagementSystem.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(BankManagementSystemDbContext))]
     [Migration("20190115131226_add_client_name_birth_dte")]
     partial class add_client_name_birth_dte
     {

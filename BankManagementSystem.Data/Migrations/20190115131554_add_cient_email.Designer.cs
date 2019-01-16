@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BankManagementSystem.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(BankManagementSystemDbContext))]
     [Migration("20190115131554_add_cient_email")]
     partial class add_cient_email
     {

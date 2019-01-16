@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BankManagementSystem.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(BankManagementSystemDbContext))]
     [Migration("20190115110713_initial_entities")]
     partial class initial_entities
     {

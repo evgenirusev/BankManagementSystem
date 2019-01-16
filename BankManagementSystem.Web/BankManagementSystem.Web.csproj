@@ -16,6 +16,7 @@
     <ProjectReference Include="..\BankManagementSystem.Common\BankManagementSystem.Common.csproj" />
     <ProjectReference Include="..\BankManagementSystem.Data\BankManagementSystem.Data.csproj" />
     <ProjectReference Include="..\BankManagementSystem.Models\BankManagementSystem.Models.csproj" />
+    <ProjectReference Include="..\BankManagementSystem.Services\BankManagementSystem.Services.csproj" />
   </ItemGroup>
 
 </Project>

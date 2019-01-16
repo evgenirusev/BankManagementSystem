@@ -4,9 +4,9 @@
     using Microsoft.EntityFrameworkCore;
     using BankManagementSystem.Models;
 
-    public class ApplicationDbContext : IdentityDbContext
+    public class BankManagementSystemDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public BankManagementSystemDbContext(DbContextOptions<BankManagementSystemDbContext> options)
             : base(options)
         {
         }
