@@ -8,11 +8,13 @@
 
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <ProjectReference Include="..\BankManagementSystem.Data.Common\BankManagementSystem.Data.Common.csproj" />
     <ProjectReference Include="..\Common\BankManagementSystem.Common\BankManagementSystem.Common.csproj" />
     <ProjectReference Include="..\Data\BankManagementSystem.Data\BankManagementSystem.Data.csproj" />
     <ProjectReference Include="..\Data\BankManagementSystem.Models\BankManagementSystem.Models.csproj" />

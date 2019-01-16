@@ -1,5 +1,6 @@
 ﻿namespace BankManagementSystem.Web.Controllers
 {
+    using AutoMapper;
     using BankManagementSystem.Common.BindingModels.Client;
     using BankManagementSystem.Common.Constants;
     using BankManagementSystem.Services;
@@ -33,7 +34,7 @@
                 return View(model);
             }
 
-            await this.clientService.Create(model.Name, model.Email, model.BirthDate, model.Balance);
+            await this.clientService.Create(model);
 
             return this.RedirectToAction(ActionConstants.Index, ControllerConstants.Clients);
         }

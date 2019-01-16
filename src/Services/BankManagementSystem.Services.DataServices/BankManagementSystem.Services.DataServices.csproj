@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Common\BankManagementSystem.Common\BankManagementSystem.Common.csproj" />
     <ProjectReference Include="..\..\Data\BankManagementSystem.Data\BankManagementSystem.Data.csproj" />
   </ItemGroup>
