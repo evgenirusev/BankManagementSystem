@@ -5,6 +5,8 @@
     using BankManagementSystem.Data.Common.Repositories;
     using BankManagementSystem.Models;
     using BankManagementSystem.Services.DataServices;
+    using BankManagementSystem.Web.ViewModels;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public class ClientService : BaseService<Client>, IClientService
@@ -22,6 +24,12 @@
             await this.Repository.SaveChangesAsync();
 
             return client.Id;
+        }
+
+        public async Task<IEnumerable<AllClientsViewModel>> GetAllClientsAsync()
+        {
+            return this.Mapper.Map<IEnumerable<AllClientsViewModel>>(
+                this.Repository.All());
         }
     }
 }

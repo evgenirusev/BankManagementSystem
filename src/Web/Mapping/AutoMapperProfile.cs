@@ -3,6 +3,7 @@
     using AutoMapper;
     using BankManagementSystem.Common.BindingModels.Client;
     using BankManagementSystem.Models;
+    using BankManagementSystem.Web.ViewModels;
 
     public class AutoMapperProfile : Profile
     {
@@ -13,7 +14,8 @@
 
         private void ConfigureClients()
         {
-            this.CreateMap <CreateClientBindingModel, Client>();
+            this.CreateMap<CreateClientBindingModel, Client>();
+            this.CreateMap<Client, AllClientsViewModel>();
         }
     }
 }

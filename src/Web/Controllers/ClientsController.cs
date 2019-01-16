@@ -18,7 +18,8 @@
 
         public IActionResult Index()
         {
-            return View();
+            var clients = this.clientService.GetAllClientsAsync();
+            return View(clients);
         }
 
         public IActionResult Create()
@@ -38,6 +39,5 @@
 
             return this.RedirectToAction(ActionConstants.Index, ControllerConstants.Clients);
         }
-
     }
 }
