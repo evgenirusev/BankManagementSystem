@@ -4,6 +4,7 @@
     using BankManagementSystem.Common.Constants;
     using BankManagementSystem.Services;
     using Microsoft.AspNetCore.Mvc;
+    using System.Threading.Tasks;
 
     public class ClientsController : Controller
     {
@@ -25,14 +26,14 @@
         }
 
         [HttpPost]
-        public IActionResult Create(CreateClientBindingModel model)
+        public async Task<IActionResult> Create(CreateClientBindingModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            this.clientService.Create(model.Name, model.Email, model.BirthDate, model.Balance);
+            await this.clientService.Create(model.Name, model.Email, model.BirthDate, model.Balance);
 
             return this.RedirectToAction(ActionConstants.Index, ControllerConstants.Clients);
         }

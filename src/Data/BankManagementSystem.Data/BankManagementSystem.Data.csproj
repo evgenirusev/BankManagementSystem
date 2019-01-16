@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BankManagementSystem.Data.Common\BankManagementSystem.Data.Common.csproj" />
     <ProjectReference Include="..\BankManagementSystem.Models\BankManagementSystem.Models.csproj" />
   </ItemGroup>
 

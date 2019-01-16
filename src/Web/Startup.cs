@@ -14,6 +14,9 @@ using BankManagementSystem.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BankManagementSystem.Web.Infrastructure.Extensions;
+using BankManagementSystem.Data.Common.Repositories;
+using BankManagementSystem.Data.Repositories;
+using BankManagementSystem.Services;
 
 namespace BankManagementSystem.Web
 {
@@ -60,6 +63,9 @@ namespace BankManagementSystem.Web
 
             // Add services using reflection
             services.AddDomainServices();
+
+            // Repository services
+            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
