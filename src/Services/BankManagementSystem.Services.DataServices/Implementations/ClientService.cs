@@ -31,5 +31,11 @@
             return this.Mapper.Map<IEnumerable<AllClientsViewModel>>(
                 this.Repository.All());
         }
+
+        public async Task<IEnumerable<AllClientNamesViewModel>> GetAllClientNamesAsync()
+        {
+            return this.Mapper.Map<IEnumerable<AllClientNamesViewModel>>(
+                this.Repository.All());
+        }
     }
 }

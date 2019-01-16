@@ -16,6 +16,7 @@
         {
             this.CreateMap<CreateClientBindingModel, Client>();
             this.CreateMap<Client, AllClientsViewModel>();
+            this.CreateMap<Client, AllClientNamesViewModel>();
         }
     }
 }

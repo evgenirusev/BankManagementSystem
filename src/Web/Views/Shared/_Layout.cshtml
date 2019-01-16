@@ -37,9 +37,19 @@
                                aria-haspopup="true" aria-expanded="false">
                                 Clients
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="customersDropdown">
+                            <div class="dropdown-menu" aria-labelledby="clientDropdown">
                                 <a class="dropdown-item" asp-controller="Clients" asp-action="Index">View Clients</a>
                                 <a class="dropdown-item" asp-controller="Clients" asp-action="Create">Create Client</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Assets
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="assetsDropdown">
+                                <a class="dropdown-item" asp-controller="Assets" asp-action="Index">All Assets</a>
+                                <a class="dropdown-item" asp-controller="Assets" asp-action="Create">Add Asset</a>
                             </div>
                         </li>
                         <li class="nav-item">

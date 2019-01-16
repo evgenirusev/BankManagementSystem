@@ -11,5 +11,7 @@
         Task<int> Create(CreateClientBindingModel model);
 
         Task<IEnumerable<AllClientsViewModel>> GetAllClientsAsync();
+
+        Task<IEnumerable<AllClientNamesViewModel>> GetAllClientNamesAsync();
     }
 }
