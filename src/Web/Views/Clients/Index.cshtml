@@ -1,8 +1,29 @@
-﻿@{
+﻿@model IEnumerable<BankManagementSystem.Common.ViewModels.Client.AllClientsViewModel>
+
+@{
     ViewData["Title"] = "Clients";
 }
 
-<div class="text-center">
-    <h1 class="display-4">All Clients</h1>
-    <p>TODO: Implement persistence for clients.</p>
-</div>
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birth Date</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model)
+        {
+        <tr>
+            <td>@client.Name</td>
+            <td>@client.Email</td>
+            <td>@client.BirthDate</td>
+            <td>@client.Balance</td>
+            <td><button class="btn btn-warning">Details</button></td>
+        </tr>
+        }
+    </tbody>
+</table>

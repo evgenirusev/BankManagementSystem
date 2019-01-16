@@ -16,9 +16,9 @@
             this.clientService = clientService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var clients = this.clientService.GetAllClientsAsync();
+            var clients = await this.clientService.GetAllClientsAsync();
             return View(clients);
         }
 

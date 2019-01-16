@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BankManagementSystem.Web.ViewModels
+﻿namespace BankManagementSystem.Common.ViewModels.Client
 {
+    using System;
+
     public class AllClientsViewModel
     {
         public int Id { get; set; }
@@ -14,5 +11,7 @@ namespace BankManagementSystem.Web.ViewModels
         public string Name { get; set; }
 
         public DateTime BirthDate { get; set; }
+
+        public decimal Balance { get; set; }
     }
 }

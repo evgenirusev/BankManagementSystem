@@ -2,8 +2,8 @@
 {
     using AutoMapper;
     using BankManagementSystem.Common.BindingModels.Client;
+    using BankManagementSystem.Common.ViewModels.Client;
     using BankManagementSystem.Models;
-    using BankManagementSystem.Web.ViewModels;
 
     public class AutoMapperProfile : Profile
     {

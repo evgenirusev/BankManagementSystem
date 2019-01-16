@@ -2,10 +2,10 @@
 {
     using AutoMapper;
     using BankManagementSystem.Common.BindingModels.Client;
+    using BankManagementSystem.Common.ViewModels.Client;
     using BankManagementSystem.Data.Common.Repositories;
     using BankManagementSystem.Models;
     using BankManagementSystem.Services.DataServices;
-    using BankManagementSystem.Web.ViewModels;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
