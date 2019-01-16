@@ -1,10 +1,9 @@
 ﻿namespace BankManagementSystem.Web.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
-    using System;
     using BankManagementSystem.Common.BindingModels.Client;
     using BankManagementSystem.Common.Constants;
     using BankManagementSystem.Services;
+    using Microsoft.AspNetCore.Mvc;
 
     public class ClientsController : Controller
     {

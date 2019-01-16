@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\BankManagementSystem.Common\BankManagementSystem.Common.csproj" />
+    <ProjectReference Include="..\..\Data\BankManagementSystem.Data\BankManagementSystem.Data.csproj" />
+  </ItemGroup>
+
+</Project>
