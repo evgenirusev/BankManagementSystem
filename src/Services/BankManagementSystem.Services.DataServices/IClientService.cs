@@ -8,7 +8,7 @@
 
     public interface IClientService
     {
-        Task<int> Create(CreateClientBindingModel model);
+        Task<string> Create(CreateClientBindingModel model);
 
         Task<IEnumerable<AllClientsViewModel>> GetAllClientsAsync();
 

@@ -1,9 +1,10 @@
 ﻿namespace BankManagementSystem.Models
 {
+    using Microsoft.AspNetCore.Identity;
     using System;
     using System.Collections.Generic;
 
-    public class Client
+    public class Client : IdentityUser
     {
         public Client()
         {
@@ -14,15 +15,9 @@
             this.Transactions = new List<Transaction>();
         }
 
-        public int Id { get; set; }
-
-        public string Email { get; set; }
-
-        public string Name { get; set; }
-
         public DateTime BirthDate { get; set; }
 
-        public decimal Balance { get; set; }
+        public string CompanyName { get; set; }
 
         public ICollection<Asset> Assets { get; set; }
 

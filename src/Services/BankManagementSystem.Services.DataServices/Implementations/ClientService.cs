@@ -16,7 +16,7 @@
         {
         }
 
-        public async Task<int> Create(CreateClientBindingModel model)
+        public async Task<string> Create(CreateClientBindingModel model)
         {
             var client = this.Mapper.Map<Client>(model);
 

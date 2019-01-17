@@ -6,7 +6,6 @@
     using Microsoft.AspNetCore.Identity.UI;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.HttpsPolicy;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using BankManagementSystem.Web.Data;
@@ -15,7 +14,7 @@
     using BankManagementSystem.Web.Infrastructure.Extensions;
     using BankManagementSystem.Data.Common.Repositories;
     using BankManagementSystem.Data.Repositories;
-    using BankManagementSystem.Services;
+    using BankManagementSystem.Models;
 
     public class Startup
     {
@@ -36,12 +35,15 @@
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddIdentity<Client, IdentityRole>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<BankManagementSystemDbContext>()
+                .AddDefaultTokenProviders();
+
             services.AddDbContext<BankManagementSystemDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("BankManagementSystem")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<BankManagementSystemDbContext>();
+                    Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("BankManagementSystem.Data")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -57,6 +59,10 @@
                     RequireUppercase = false
                 };
             });
+
+            services.AddDefaultIdentity<Client>()
+                    .AddDefaultUI(UIFramework.Bootstrap4)
+                    .AddEntityFrameworkStores<BankManagementSystemDbContext>();
 
             services.AddAutoMapper();
             

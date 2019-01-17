@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankManagementSystem.Data.Migrations
 {
-    public partial class initial_entities : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,24 +40,13 @@ namespace BankManagementSystem.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    BirthDate = table.Column<DateTime>(nullable: false),
+                    CompanyName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Clients",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Balance = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clients", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,17 +163,17 @@ namespace BankManagementSystem.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Amount = table.Column<decimal>(nullable: false),
                     AssetCategory = table.Column<int>(nullable: false),
-                    ClientId = table.Column<int>(nullable: false)
+                    ClientId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Assets", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Assets_Clients_ClientId",
+                        name: "FK_Assets_AspNetUsers_ClientId",
                         column: x => x.ClientId,
-                        principalTable: "Clients",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -196,17 +185,17 @@ namespace BankManagementSystem.Data.Migrations
                     Number = table.Column<string>(nullable: true),
                     CVV = table.Column<string>(nullable: true),
                     ExpirationDate = table.Column<DateTime>(nullable: false),
-                    ClientId = table.Column<int>(nullable: false)
+                    ClientId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CreditCard", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CreditCard_Clients_ClientId",
+                        name: "FK_CreditCard_AspNetUsers_ClientId",
                         column: x => x.ClientId,
-                        principalTable: "Clients",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -217,17 +206,17 @@ namespace BankManagementSystem.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Amount = table.Column<decimal>(nullable: false),
                     PercentInterest = table.Column<decimal>(nullable: false),
-                    ClientId = table.Column<int>(nullable: false)
+                    ClientId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Credits", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Credits_Clients_ClientId",
+                        name: "FK_Credits_AspNetUsers_ClientId",
                         column: x => x.ClientId,
-                        principalTable: "Clients",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -238,17 +227,17 @@ namespace BankManagementSystem.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DateTime = table.Column<int>(nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
-                    ClientId = table.Column<int>(nullable: false)
+                    ClientId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Deposits", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Deposits_Clients_ClientId",
+                        name: "FK_Deposits_AspNetUsers_ClientId",
                         column: x => x.ClientId,
-                        principalTable: "Clients",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -260,17 +249,17 @@ namespace BankManagementSystem.Data.Migrations
                     DateTime = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    ClientId = table.Column<int>(nullable: false)
+                    ClientId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Transactions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Transactions_Clients_ClientId",
+                        name: "FK_Transactions_AspNetUsers_ClientId",
                         column: x => x.ClientId,
-                        principalTable: "Clients",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -375,9 +364,6 @@ namespace BankManagementSystem.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Clients");
         }
     }
 }
