@@ -35,12 +35,6 @@
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddIdentity<Client, IdentityRole>()
-                .AddDefaultUI()
-                .AddDefaultTokenProviders()
-                .AddEntityFrameworkStores<BankManagementSystemDbContext>()
-                .AddDefaultTokenProviders();
-
             services.AddDbContext<BankManagementSystemDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("BankManagementSystem.Data")));
