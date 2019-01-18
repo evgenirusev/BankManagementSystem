@@ -54,9 +54,11 @@
                 };
             });
 
-            services.AddDefaultIdentity<Client>()
-                    .AddDefaultUI(UIFramework.Bootstrap4)
-                    .AddEntityFrameworkStores<BankManagementSystemDbContext>();
+            services.AddIdentity<Client, IdentityRole>()
+                            .AddDefaultUI()
+                            .AddDefaultTokenProviders()
+                            .AddEntityFrameworkStores<BankManagementSystemDbContext>()
+                            .AddDefaultTokenProviders();
 
             services.AddAutoMapper();
             
@@ -85,7 +87,7 @@
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.SeedDatabaseAsync();
             app.UseAuthentication();
 
             app.UseMvc(routes =>
