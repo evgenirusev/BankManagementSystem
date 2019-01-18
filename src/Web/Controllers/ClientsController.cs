@@ -1,8 +1,5 @@
 ﻿namespace BankManagementSystem.Web.Controllers
 {
-    using AutoMapper;
-    using BankManagementSystem.Common.BindingModels.Client;
-    using BankManagementSystem.Common.Constants;
     using BankManagementSystem.Services;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
@@ -27,17 +24,17 @@
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateClientBindingModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+        //[HttpPost]
+        //public async Task<IActionResult> Create(CreateClientBindingModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
 
-            await this.clientService.Create(model);
+        //    await this.clientService.Create(model);
 
-            return this.RedirectToAction(ActionConstants.Index, ControllerConstants.Clients);
-        }
+        //    return this.RedirectToAction(ActionConstants.Index, ControllerConstants.Clients);
+        //}
     }
 }

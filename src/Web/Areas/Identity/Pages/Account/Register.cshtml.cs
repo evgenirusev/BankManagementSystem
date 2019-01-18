@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using BankManagementSystem.Web.Areas.Identity.Models.BindingModels;
 
 namespace BankManagementSystem.Web.Areas.Identity.Pages.Account
 {
@@ -34,28 +35,9 @@ namespace BankManagementSystem.Web.Areas.Identity.Pages.Account
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        public RegisterInputBindingModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
-
-        public class InputModel
-        {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
-
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            [Display(Name = "Password")]
-            public string Password { get; set; }
-
-            [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-            public string ConfirmPassword { get; set; }
-        }
 
         public void OnGet(string returnUrl = null)
         {
@@ -67,7 +49,15 @@ namespace BankManagementSystem.Web.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new Client { UserName = Input.Email, Email = Input.Email };
+                var user = new Client {
+                    UserName = Input.Username,
+                    Email = Input.Email,
+                    FullName = Input.FullName,
+                    BirthDate = Input.BirthDate,
+                };
+
+                var userRole = Input.IsAdministrator ? "Administrator" : "User";
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -84,6 +74,9 @@ namespace BankManagementSystem.Web.Areas.Identity.Pages.Account
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    
+                    await _userManager.AddToRoleAsync(user, userRole);
+
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)

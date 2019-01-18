@@ -15,7 +15,7 @@
         private static readonly IdentityRole[] roles =
         {
             new IdentityRole(RolesConstants.Administrator),
-            new IdentityRole(RolesConstants.Trainer)
+            new IdentityRole(RolesConstants.User)
         };
 
         public static async void SeedDatabaseAsync(

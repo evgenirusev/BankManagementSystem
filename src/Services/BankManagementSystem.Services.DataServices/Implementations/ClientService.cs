@@ -1,7 +1,6 @@
 ﻿namespace BankManagementSystem.Services.Implementations
 {
     using AutoMapper;
-    using BankManagementSystem.Common.BindingModels.Client;
     using BankManagementSystem.Common.ViewModels.Client;
     using BankManagementSystem.Data.Common.Repositories;
     using BankManagementSystem.Models;
@@ -9,33 +8,34 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    public class ClientService : BaseService<Client>, IClientService
+    public class ClientService 
+        //: BaseService<Client>, IClientService
     {
-        public ClientService(IRepository<Client> repository, IMapper mapper) 
-            : base(repository, mapper)
-        {
-        }
+        //public ClientService(IRepository<Client> repository, IMapper mapper) 
+        //    : base(repository, mapper)
+        //{
+        //}
 
-        public async Task<string> Create(CreateClientBindingModel model)
-        {
-            var client = this.Mapper.Map<Client>(model);
+        //public async Task<string> Create(CreateClientBindingModel model)
+        //{
+        //    var client = this.Mapper.Map<Client>(model);
 
-            await this.Repository.AddAsync(client);
-            await this.Repository.SaveChangesAsync();
+        //    await this.Repository.AddAsync(client);
+        //    await this.Repository.SaveChangesAsync();
 
-            return client.Id;
-        }
+        //    return client.Id;
+        //}
 
-        public async Task<IEnumerable<AllClientsViewModel>> GetAllClientsAsync()
-        {
-            return this.Mapper.Map<IEnumerable<AllClientsViewModel>>(
-                this.Repository.All());
-        }
+        //public async Task<IEnumerable<AllClientsViewModel>> GetAllClientsAsync()
+        //{
+        //    return this.Mapper.Map<IEnumerable<AllClientsViewModel>>(
+        //        this.Repository.All());
+        //}
 
-        public async Task<IEnumerable<AllClientNamesViewModel>> GetAllClientNamesAsync()
-        {
-            return this.Mapper.Map<IEnumerable<AllClientNamesViewModel>>(
-                this.Repository.All());
-        }
+        //public async Task<IEnumerable<AllClientNamesViewModel>> GetAllClientNamesAsync()
+        //{
+        //    return this.Mapper.Map<IEnumerable<AllClientNamesViewModel>>(
+        //        this.Repository.All());
+        //}
     }
 }

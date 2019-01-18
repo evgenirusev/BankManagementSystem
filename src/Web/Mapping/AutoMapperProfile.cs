@@ -1,7 +1,6 @@
 ﻿namespace BankManagementSystem.Web.Mapping
 {
     using AutoMapper;
-    using BankManagementSystem.Common.BindingModels.Client;
     using BankManagementSystem.Common.ViewModels.Client;
     using BankManagementSystem.Models;
 
@@ -14,7 +13,6 @@
 
         private void ConfigureClients()
         {
-            this.CreateMap<CreateClientBindingModel, Client>();
             this.CreateMap<Client, AllClientsViewModel>();
             this.CreateMap<Client, AllClientNamesViewModel>();
         }

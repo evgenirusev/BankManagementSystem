@@ -1,7 +1,6 @@
 ﻿namespace BankManagementSystem.Web.Controllers
 {
     using AutoMapper;
-    using BankManagementSystem.Common.BindingModels.Client;
     using BankManagementSystem.Common.Constants;
     using BankManagementSystem.Services;
     using Microsoft.AspNetCore.Mvc;
