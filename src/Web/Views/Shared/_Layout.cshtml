@@ -19,43 +19,47 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Bank</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Cards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Deposit</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Withdraw</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Assets</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Credit</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Transactions</a>
-                        </li>
-                        <partial name="_AdministratorPartial"/>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Bank</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Credit Cards
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="customersDropdown">
+                            <a class="dropdown-item" asp-controller="CreditCards" asp-action="Index">My Cards</a>
+                            <a class="dropdown-item" asp-controller="CreditCards" asp-action="Create">Create Card</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Deposit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Withdraw</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Assets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Credit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Transactions</a>
+                    </li>
+                    <partial name="_AdministratorPartial" />
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Privacy">Privacy</a>
+                    </li>
+                </ul>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>

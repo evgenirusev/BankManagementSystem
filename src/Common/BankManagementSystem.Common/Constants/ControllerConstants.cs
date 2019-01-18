@@ -6,6 +6,6 @@ namespace BankManagementSystem.Common.Constants
 {
     public static class ControllerConstants
     {
-        public const string Clients = "Clients";
+        public const string CreditCards = "CreditCards";
     }
 }

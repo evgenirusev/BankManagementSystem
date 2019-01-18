@@ -6,5 +6,8 @@
         public const string Email = "Email";
         public const string BirthDate = "Date of Birth";
         public const string Balance = "Balance";
+
+        public const string CardNumber = "Card Number";
+        public const string CVV = "CVV";
     }
 }
