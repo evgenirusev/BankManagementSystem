@@ -46,7 +46,7 @@
                 {
                     RequiredLength = 4,
                     RequiredUniqueChars = 1,
-                    RequireDigit = true,
+                    RequireDigit = false,
                     RequireLowercase = false,
                     RequireNonAlphanumeric = false,
                     RequireUppercase = false

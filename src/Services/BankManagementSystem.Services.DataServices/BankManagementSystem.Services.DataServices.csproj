@@ -13,4 +13,8 @@
     <ProjectReference Include="..\..\Data\BankManagementSystem.Data\BankManagementSystem.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Implementations\" />
+  </ItemGroup>
+
 </Project>

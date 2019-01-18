@@ -33,7 +33,7 @@
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Is Administrator")]
+        [Display(Name = "Administrator")]
         public bool IsAdministrator { get; set; }
     }
 }

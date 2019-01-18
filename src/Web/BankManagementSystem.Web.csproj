@@ -9,6 +9,14 @@
     <StartupObject>BankManagementSystem.Web.Program</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Shared\_AdministratorPartial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\_AdministratorPartial.cshtml" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
