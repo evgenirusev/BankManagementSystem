@@ -1,4 +1,4 @@
-﻿namespace BankManagementSystem.Common.ViewModels
+﻿namespace BankManagementSystem.Common.ViewModels.CreditCard
 {
     using System;
 
@@ -9,6 +9,8 @@
         public string Number { get; set; }
 
         public string CVV { get; set; }
+
+        public string ClientId { get; set; }
 
         public DateTime ExpirationDate { get; set; }
     }

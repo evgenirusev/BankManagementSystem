@@ -1,9 +1,9 @@
-﻿using BankManagementSystem.Common.Constants;
-using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace BankManagementSystem.Common.BindingModels.Card
+﻿namespace BankManagementSystem.Common.BindingModels.CreditCard
 {
+    using BankManagementSystem.Common.Constants;
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     public class CreateCreditCardBindingModel
     {
         [Required]

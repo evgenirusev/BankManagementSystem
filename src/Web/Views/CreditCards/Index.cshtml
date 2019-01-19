@@ -1,1 +1,28 @@
-﻿
+﻿@model IEnumerable<CreditCardViewModel>
+
+@{
+    ViewData["Title"] = "Registered Cards";
+}
+<h1>@ViewData["Title"]</h1>
+<hr class="hr-2"/>
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>CVV</th>
+            <th>Expiration Date</th>
+            <th>Transactions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var card in Model)
+        {
+            <tr>
+                <td>@card.Number</td>
+                <td>@card.CVV</td>
+                <td>@card.ExpirationDate</td>
+                <td><button class="btn btn-warning">View</button></td>
+            </tr>
+        }
+    </tbody>
+</table>

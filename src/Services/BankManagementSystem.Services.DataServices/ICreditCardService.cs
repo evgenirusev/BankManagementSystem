@@ -1,8 +1,6 @@
-﻿using BankManagementSystem.Common.BindingModels.Card;
-using BankManagementSystem.Common.ViewModels;
-using System;
+﻿using BankManagementSystem.Common.BindingModels.CreditCard;
+using BankManagementSystem.Common.ViewModels.CreditCard;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BankManagementSystem.Services.DataServices

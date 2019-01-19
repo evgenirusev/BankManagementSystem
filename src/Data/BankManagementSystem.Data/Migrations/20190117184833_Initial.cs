@@ -23,7 +23,7 @@ namespace BankManagementSystem.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUsers",
+                name: "AspNet",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),

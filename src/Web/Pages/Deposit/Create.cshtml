@@ -1,0 +1,20 @@
+﻿@page
+@model CreateModel
+
+@{
+    ViewData["Title"] = "Deposit";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h1>TODO: Implement</h1>
+
+<form method="post">
+    <select asp-for="Input.CreditCardId" asp-items="@Model.CreditCardItems"></select>
+    <input value="Submit" type="submit"/>
+</form>
+
+@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+}

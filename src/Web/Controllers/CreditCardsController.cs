@@ -1,21 +1,25 @@
 ﻿namespace BankManagementSystem.Web.Controllers
 {
-    using BankManagementSystem.Common.BindingModels.Card;
+    using BankManagementSystem.Common.BindingModels.CreditCard;
     using BankManagementSystem.Common.Constants;
+    using BankManagementSystem.Models;
     using BankManagementSystem.Services.DataServices;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using System;
+    using System.Linq;
     using System.Threading.Tasks;
 
     [Authorize]
     public class CreditCardsController : Controller
     {
-        private readonly ICreditCardService creditCardService;
+        private ICreditCardService creditCardService;
+        private UserManager<Client> userManager;
 
-        public CreditCardsController(ICreditCardService creditCardService)
+        public CreditCardsController(ICreditCardService creditCardService, UserManager<Client> userManager)
         {
             this.creditCardService = creditCardService;
+            this.userManager = userManager;
         }
 
         public IActionResult Create()
@@ -38,7 +42,9 @@
 
         public async Task<IActionResult> Index()
         {
-            var creditCards = await this.creditCardService.GetAllCreditCardsAsync();
+            var user = await this.userManager.FindByNameAsync(this.User.Identity.Name);
+            var creditCards = (await this.creditCardService.GetAllCreditCardsAsync())
+                .Where(x => x.ClientId == user.Id).ToList();
             return View(creditCards);
         }
     }

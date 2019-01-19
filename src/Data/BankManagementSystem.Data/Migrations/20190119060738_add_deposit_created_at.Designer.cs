@@ -4,14 +4,15 @@ using BankManagementSystem.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankManagementSystem.Data.Migrations
 {
     [DbContext(typeof(BankManagementSystemDbContext))]
-    partial class BankManagementSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190119060738_add_deposit_created_at")]
+    partial class add_deposit_created_at
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

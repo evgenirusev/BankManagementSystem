@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\..\Data\BankManagementSystem.Data\BankManagementSystem.Data.csproj" />
   </ItemGroup>
 
 </Project>

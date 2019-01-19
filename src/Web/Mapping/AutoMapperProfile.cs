@@ -1,8 +1,8 @@
 ﻿namespace BankManagementSystem.Web.Mapping
 {
     using AutoMapper;
-    using BankManagementSystem.Common.BindingModels.Card;
-    using BankManagementSystem.Common.ViewModels;
+    using BankManagementSystem.Common.BindingModels.CreditCard;
+    using BankManagementSystem.Common.ViewModels.CreditCard;
     using BankManagementSystem.Models;
 
     public class AutoMapperProfile : Profile

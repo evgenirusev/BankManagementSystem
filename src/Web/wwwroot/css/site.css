@@ -54,3 +54,9 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* Custom CSS */
+.hr-2 {
+    height: 2px;
+    background-color: #FFC107;
+}
