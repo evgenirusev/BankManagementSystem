@@ -36,9 +36,10 @@
             return this.RedirectToAction(ActionConstants.Index, ControllerConstants.CreditCards);
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            throw new NotImplementedException();
+            var creditCards = await this.creditCardService.GetAllCreditCardsAsync();
+            return View(creditCards);
         }
     }
 }

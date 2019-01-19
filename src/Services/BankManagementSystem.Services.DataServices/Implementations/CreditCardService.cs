@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using BankManagementSystem.Common;
 using BankManagementSystem.Common.BindingModels.Card;
+using BankManagementSystem.Common.ViewModels;
 using BankManagementSystem.Data.Common.Repositories;
 using BankManagementSystem.Models;
 using Microsoft.AspNetCore.Identity;
@@ -30,6 +32,11 @@ namespace BankManagementSystem.Services.DataServices.Implementations
             await this.Repository.SaveChangesAsync();
 
             return creditCard.Id;
+        }
+
+        public async Task<IEnumerable<CreditCardViewModel>> GetAllCreditCardsAsync()
+        {
+            return this.Mapper.Map<IEnumerable<CreditCardViewModel>>(this.Repository.All());
         }
     }
 }

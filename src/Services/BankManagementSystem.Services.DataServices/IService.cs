@@ -1,4 +1,4 @@
-﻿namespace BankManagementSystem.Services
+﻿namespace BankManagementSystem.Services.DataServices
 {
     public interface IService
     {

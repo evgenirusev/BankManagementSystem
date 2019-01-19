@@ -2,6 +2,7 @@
 {
     using AutoMapper;
     using BankManagementSystem.Common.BindingModels.Card;
+    using BankManagementSystem.Common.ViewModels;
     using BankManagementSystem.Models;
 
     public class AutoMapperProfile : Profile
@@ -14,6 +15,7 @@
         private void ConfigureCreditCards()
         {
             this.CreateMap<CreateCreditCardBindingModel, CreditCard>();
+            this.CreateMap<CreditCard, CreditCardViewModel>();
         }
     }
 }
