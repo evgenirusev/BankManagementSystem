@@ -1,7 +1,7 @@
 ﻿namespace BankManagementSystem.Web.Infrastructure.Extensions
 {
+    using BankManagementSystem.Services.DataServices;
     using Microsoft.Extensions.DependencyInjection;
-    using Services;
     using System.Linq;
     using System.Reflection;
 

@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AutoMapper;
-using BankManagementSystem.Common;
-using BankManagementSystem.Common.BindingModels.Card;
-using BankManagementSystem.Common.ViewModels;
-using BankManagementSystem.Data.Common.Repositories;
-using BankManagementSystem.Models;
-using Microsoft.AspNetCore.Identity;
-
-namespace BankManagementSystem.Services.DataServices.Implementations
+﻿namespace BankManagementSystem.Services.DataServices.Implementations
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using AutoMapper;
+    using BankManagementSystem.Common;
+    using BankManagementSystem.Common.BindingModels.Card;
+    using BankManagementSystem.Common.ViewModels;
+    using BankManagementSystem.Data.Common.Repositories;
+    using BankManagementSystem.Models;
+    using Microsoft.AspNetCore.Identity;
+
     class CreditCardService : BaseService<CreditCard>, ICreditCardService
     {
         public CreditCardService(IRepository<CreditCard> repository, 
@@ -27,6 +28,7 @@ namespace BankManagementSystem.Services.DataServices.Implementations
 
             var creditCard = this.Mapper.Map<CreditCard>(model);
             creditCard.ClientId = client.Id;
+            creditCard.DateRegistered = DateTime.Now;
 
             await this.Repository.AddAsync(creditCard);
             await this.Repository.SaveChangesAsync();

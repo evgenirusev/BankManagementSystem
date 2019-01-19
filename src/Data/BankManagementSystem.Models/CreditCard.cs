@@ -10,6 +10,8 @@
 
         public string CVV { get; set; }
 
+        public DateTime DateRegistered { get; set; }
+
         public DateTime ExpirationDate { get; set; }
 
         public string ClientId { get; set; }
