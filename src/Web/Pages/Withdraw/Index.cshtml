@@ -1,0 +1,50 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@model BankManagementSystem.Web.Pages.Withdraw.IndexModel
+@inject SignInManager<Client> SignInManager
+@inject UserManager<Client> UserManager
+
+@{
+    ViewData["Title"] = "Withdraw";
+    ViewData["UserBalance"] = (await UserManager.FindByNameAsync(this.User.Identity.Name)).Balance;
+}
+
+<h2>Withdraw</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <hr class="hr-2" />
+        <div class="mb-3">
+            <h5 class="d-inline-block">Payment Method:</h5><i> Bank Transfer</i>
+        </div>
+        <div class="mb-3">
+            <h5 class="d-inline-block">Current Balance:</h5><i> $@ViewData["UserBalance"]</i>
+        </div>
+        <form method="post">
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="Input.WithdrawAmount">Withdraw Amount:</label>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input asp-for="Input.WithdrawAmount" type="number" required placeholder="Amount to withdraw..." class="form-control form-control-lg" />
+                    </div>
+                    <span asp-validation-for="Input.WithdrawAmount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.CurrentClientBalance" value="@ViewData["UserBalance"]" type="hidden" required />
+                </div>
+                <hr />
+                <div>
+                    <input type="submit" value="Withdraw" class="btn btn-warning btn-lg btn-block" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
