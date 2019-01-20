@@ -3,10 +3,12 @@
     using BankManagementSystem.Common.BindingModels.Withdraw;
     using BankManagementSystem.Common.Constants;
     using BankManagementSystem.Services.DataServices;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using System.Threading.Tasks;
 
+    [Authorize]
     public class IndexModel : PageModel
     {
         private IWithdrawService withdrawService;

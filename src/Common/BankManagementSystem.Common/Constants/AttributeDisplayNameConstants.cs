@@ -9,5 +9,7 @@
 
         public const string CardNumber = "Card Number";
         public const string CVV = "CVV";
+
+        public const string AssetName = "Asset Name";
     }
 }

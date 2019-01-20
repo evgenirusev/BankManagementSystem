@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-xl navbar-light">
             <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Bank</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
                         <a class="nav-link text-dark" asp-area="" asp-page="@PageConstants.WithdrawIndex">Withdraw</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Assets</a>
+                        <a class="nav-link text-dark" asp-controller="Assets" asp-action="Index">Assets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Credit</a>

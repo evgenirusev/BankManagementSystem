@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BankManagementSystem.Common.BindingModels.Asset;
+using System.Threading.Tasks;
 
 namespace BankManagementSystem.Services.DataServices
 {
-    class IAssetService
+    public interface IAssetService
     {
+        Task<int> Create(CreateAssetBindingModel model, string username);
     }
 }

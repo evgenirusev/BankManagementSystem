@@ -1,6 +1,7 @@
 ﻿namespace BankManagementSystem.Web.Mapping
 {
     using AutoMapper;
+    using BankManagementSystem.Common.BindingModels.Asset;
     using BankManagementSystem.Common.BindingModels.CreditCard;
     using BankManagementSystem.Common.BindingModels.Deposit;
     using BankManagementSystem.Common.ViewModels.CreditCard;
@@ -12,6 +13,7 @@
         {
             ConfigureCreditCards();
             ConfigureDeposits();
+            ConfigureAssets();
         }
 
         private void ConfigureCreditCards()
@@ -23,6 +25,11 @@
         private void ConfigureDeposits()
         {
             this.CreateMap<CreateDepositBindingModel, Deposit>();
+        }
+
+        private void ConfigureAssets()
+        {
+            this.CreateMap<CreateAssetBindingModel, Asset>();
         }
     }
 }

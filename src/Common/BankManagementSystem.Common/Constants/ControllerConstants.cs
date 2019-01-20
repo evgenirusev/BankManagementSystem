@@ -7,5 +7,6 @@ namespace BankManagementSystem.Common.Constants
     public static class ControllerConstants
     {
         public const string CreditCards = "CreditCards";
+        public const string Assets = "Assets";
     }
 }
