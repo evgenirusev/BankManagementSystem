@@ -2,7 +2,6 @@
 @inject SignInManager<Client> SignInManager
 @inject UserManager<Client> UserManager
 
-<ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
@@ -23,4 +22,3 @@ else
         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
-</ul>

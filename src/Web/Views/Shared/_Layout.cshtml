@@ -54,12 +54,14 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Transactions</a>
                     </li>
-                    <partial name="_AdministratorPartial" />
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Privacy">Privacy</a>
                     </li>
                 </ul>
-                <partial name="_LoginPartial" />
+                <ul class="navbar-nav">
+                    <partial name="_AdministratorPartial" />
+                    <partial name="_LoginPartial" />
+                </ul>
             </div>
         </nav>
     </header>
