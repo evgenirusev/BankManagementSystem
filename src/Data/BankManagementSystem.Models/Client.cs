@@ -19,6 +19,8 @@
 
         public DateTime BirthDate { get; set; }
 
+        public decimal Balance { get; set; }
+
         public ICollection<Asset> Assets { get; set; }
 
         public ICollection<Credit> Credits { get; set; }

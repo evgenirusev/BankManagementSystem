@@ -21,6 +21,12 @@ namespace BankManagementSystem.Services.DataServices.Implementations
         public async Task CreateDepositAsync(CreateDepositBindingModel model, string username)
         {
             Validator.ThrowIfNull(model);
+            Validator.ThrowIfNull(username);
+
+            if (model.Amount < 0)
+            {
+                throw new ArgumentNullException();
+            }
 
             var client = await this.GetUserByNamedAsync(username);
 
@@ -28,6 +34,8 @@ namespace BankManagementSystem.Services.DataServices.Implementations
             deposit.ClientId = client.Id;
             deposit.CreatedAt = DateTime.Now;
 
+            client.Balance += model.Amount;
+            
             await this.Repository.AddAsync(deposit);
             await this.Repository.SaveChangesAsync();
         }
