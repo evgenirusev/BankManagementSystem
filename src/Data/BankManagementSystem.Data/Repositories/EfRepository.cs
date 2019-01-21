@@ -42,5 +42,10 @@
         public Task<int> SaveChangesAsync() => this.Context.SaveChangesAsync();
 
         public void Dispose() => this.Context.Dispose();
+        
+        public TEntity FindById(int id)
+        {
+            return this.Context.Set<TEntity>().Find(id);
+        }
     }
 }

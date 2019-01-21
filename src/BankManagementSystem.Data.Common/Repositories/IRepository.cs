@@ -17,6 +17,8 @@ namespace BankManagementSystem.Data.Common.Repositories
 
         Task AddAsync(TEntity entity);
 
+        TEntity FindById(int id);
+
         void Update(TEntity entity);
 
         void Delete(TEntity entity);

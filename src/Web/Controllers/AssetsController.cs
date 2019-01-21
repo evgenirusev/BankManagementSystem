@@ -48,5 +48,10 @@ namespace BankManagementSystem.Web.Controllers
             var assets = (await this.assetService.GetAllAssetsAsync());
             return View(assets);
         }
+
+        public async Task<IActionResult> Purchase()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

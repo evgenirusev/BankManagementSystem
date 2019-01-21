@@ -4,6 +4,7 @@
     using BankManagementSystem.Common.BindingModels.Asset;
     using BankManagementSystem.Common.BindingModels.CreditCard;
     using BankManagementSystem.Common.BindingModels.Deposit;
+    using BankManagementSystem.Common.ViewModels.Asset;
     using BankManagementSystem.Common.ViewModels.CreditCard;
     using BankManagementSystem.Models;
 
@@ -30,6 +31,8 @@
         private void ConfigureAssets()
         {
             this.CreateMap<CreateAssetBindingModel, Asset>();
+            this.CreateMap<Asset, AssetViewModel>();
+            this.CreateMap<AssetViewModel, Asset>();
         }
     }
 }

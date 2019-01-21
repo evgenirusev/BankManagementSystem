@@ -41,5 +41,11 @@ namespace BankManagementSystem.Services.DataServices.Implementations
         {
             return this.Mapper.Map<IEnumerable<AssetViewModel>>(this.Repository.All());
         }
+
+        public async Task<AssetViewModel> FindById(int id)
+        {
+            Asset assetEntity = this.Repository.FindById(id);
+            return this.Mapper.Map<AssetViewModel>(assetEntity);
+        }
     }
 }
