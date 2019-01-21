@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using BankManagementSystem.Common.BindingModels.Asset;
 using BankManagementSystem.Common.Constants;
+using BankManagementSystem.Models;
 using BankManagementSystem.Services.DataServices;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankManagementSystem.Web.Controllers
@@ -14,15 +16,12 @@ namespace BankManagementSystem.Web.Controllers
     public class AssetsController : Controller
     {
         private IAssetService assetService;
+        UserManager<Client> userManager;
 
-        public AssetsController(IAssetService assetService)
+        public AssetsController(IAssetService assetService, UserManager<Client> userManager)
         {
             this.assetService = assetService;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
+            this.userManager = userManager;
         }
 
         [Authorize(Roles = RolesConstants.Administrator)]
@@ -42,6 +41,12 @@ namespace BankManagementSystem.Web.Controllers
             await this.assetService.Create(model, this.User.Identity.Name);
 
             return this.RedirectToAction(ActionConstants.Index, ControllerConstants.Assets);
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var assets = (await this.assetService.GetAllAssetsAsync());
+            return View(assets);
         }
     }
 }

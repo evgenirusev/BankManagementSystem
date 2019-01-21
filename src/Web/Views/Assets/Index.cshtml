@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AssetViewModel>
+
+@{
+    ViewData["Title"] = "All Assets";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr class="hr-2" />
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Created On</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Monetary Value</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var asset in Model)
+        {
+        <tr>
+            <td>@asset.CreatedAt</td>
+            <td>@asset.Name</td>
+            <td>@asset.AssetCategory</td>
+            <td>@asset.MonetaryValue</td>
+            <td><button class="btn btn-warning">Purchase</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
