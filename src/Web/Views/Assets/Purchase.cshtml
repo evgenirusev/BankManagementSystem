@@ -1,0 +1,57 @@
+﻿@model PurchaseAssetDto
+@{
+    ViewData["Title"] = "Purchase";
+}
+
+<h2>Purchase Asset</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <hr class="hr-2" />
+        <div>
+            <h5 class="d-inline-block">Asset:</h5>
+            <i> @Model.ViewModel.Name</i>
+        </div>
+        <div>
+            <h5 class="d-inline-block">Price:</h5>
+            <i> $@Model.ViewModel.MonetaryValue</i>
+        </div>
+        <div>
+            <h5 class="d-inline-block">Listed on:</h5>
+            <i> @Model.ViewModel.CreatedAt.</i>
+        </div>
+        <hr />
+        <div class="mb-3">
+            <h5 class="d-inline-block">Payment Method:</h5><i> Online Banking ePayment</i>
+        </div>
+        <div class="mb-3">
+            <h5 class="d-inline-block">Bank Name:</h5><i> ABC PRIVATE BANK</i>
+        </div>
+        <div class="mb-3">
+            <h5 class="d-inline-block">Your Current Balance:</h5><i> $@Model.CurrentClientBalance</i>
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <hr />
+                <div class="alert alert-danger">
+                    <span asp-validation-for="BindingModel.AssetPrice"></span>
+                </div>
+            }
+        </div>
+        <form method="post">
+            <div class="form-group">
+                <input asp-for="BindingModel.AssetId" value="@Model.ViewModel.Id" type="hidden" required />
+            </div>
+            <div class="form-group">
+                <input asp-for="BindingModel.CurrentClientBalance" value="@Model.CurrentClientBalance" type="hidden" required />
+            </div>
+            <div class="form-group">
+                <input asp-for="BindingModel.AssetPrice" value="@Model.ViewModel.MonetaryValue" type="hidden" required />
+            </div>
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Purchase" class="btn btn-warning btn-lg btn-block" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

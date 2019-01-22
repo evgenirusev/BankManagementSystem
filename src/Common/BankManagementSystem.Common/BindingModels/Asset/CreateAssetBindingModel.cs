@@ -1,6 +1,5 @@
 ﻿using BankManagementSystem.Common.Constants;
 using BankManagementSystem.Models.Enum;
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace BankManagementSystem.Common.BindingModels.Asset

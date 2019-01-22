@@ -19,14 +19,18 @@
     </thead>
     <tbody>
         @foreach (var asset in Model)
-        {
-        <tr>
-            <td>@asset.CreatedAt</td>
-            <td>@asset.Name</td>
-            <td>@asset.AssetCategory</td>
-            <td>@asset.MonetaryValue</td>
-            <td><button class="btn btn-warning">Purchase</button></td>
-        </tr>
+         {
+            <tr>
+                <td>@asset.CreatedAt</td>
+                <td>@asset.Name</td>
+                <td>@asset.AssetCategory</td>
+                <td>@asset.MonetaryValue</td>
+                <td>
+                    <a asp-action="Purchase" asp-route-id="@asset.Id" asp-controller="Assets">
+                        <button class="btn btn-warning">Purchase</button>
+                    </a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

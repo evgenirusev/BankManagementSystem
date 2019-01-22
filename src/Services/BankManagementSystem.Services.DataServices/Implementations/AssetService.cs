@@ -5,7 +5,6 @@ using AutoMapper;
 using BankManagementSystem.Common;
 using BankManagementSystem.Common.BindingModels.Asset;
 using BankManagementSystem.Common.ViewModels.Asset;
-using BankManagementSystem.Common.ViewModels.CreditCard;
 using BankManagementSystem.Data.Common.Repositories;
 using BankManagementSystem.Models;
 using Microsoft.AspNetCore.Identity;

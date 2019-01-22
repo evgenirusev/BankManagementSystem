@@ -1,11 +1,11 @@
 ﻿@page
 @using Microsoft.AspNetCore.Identity
 @model BankManagementSystem.Web.Pages.Withdraw.IndexModel
-@inject SignInManager<Client> SignInManager
 @inject UserManager<Client> UserManager
 
 @{
     ViewData["Title"] = "Withdraw";
+    // Refactor for the single responsibility principle
     ViewData["UserBalance"] = (await UserManager.FindByNameAsync(this.User.Identity.Name)).Balance;
 }
 

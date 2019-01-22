@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BankManagementSystem.Common.BindingModels.Asset;
 using BankManagementSystem.Common.Constants;
+using BankManagementSystem.Common.ViewModels.Asset;
 using BankManagementSystem.Models;
 using BankManagementSystem.Services.DataServices;
 using Microsoft.AspNetCore.Authorization;
@@ -48,10 +47,25 @@ namespace BankManagementSystem.Web.Controllers
             var assets = (await this.assetService.GetAllAssetsAsync());
             return View(assets);
         }
-
-        public async Task<IActionResult> Purchase()
+        
+        public async Task<IActionResult> Purchase(int id, PurchaseAssetDto dto)
         {
-            throw new NotImplementedException();
+            var viewModel = await this.assetService.FindById(id);
+            dto.ViewModel = viewModel;
+            dto.CurrentClientBalance = 
+                (await this.userManager.FindByNameAsync(this.User.Identity.Name)).Balance;
+            return View(dto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PurchaseConfirm(int id, PurchaseAssetDto dto)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(dto);
+            }
+            // TODO: Impelent me :)
+            return null;
         }
     }
 }
