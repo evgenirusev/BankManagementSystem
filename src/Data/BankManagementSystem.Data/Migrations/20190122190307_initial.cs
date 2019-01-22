@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankManagementSystem.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,7 +23,7 @@ namespace BankManagementSystem.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNet",
+                name: "AspNetUsers",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -41,8 +41,9 @@ namespace BankManagementSystem.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
+                    FullName = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
-                    CompanyName = table.Column<string>(nullable: true)
+                    Balance = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,8 +96,8 @@ namespace BankManagementSystem.Data.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -140,8 +141,8 @@ namespace BankManagementSystem.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -161,7 +162,9 @@ namespace BankManagementSystem.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Amount = table.Column<decimal>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    MonetaryValue = table.Column<decimal>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
                     AssetCategory = table.Column<int>(nullable: false),
                     ClientId = table.Column<string>(nullable: true)
                 },
@@ -184,6 +187,7 @@ namespace BankManagementSystem.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Number = table.Column<string>(nullable: true),
                     CVV = table.Column<string>(nullable: true),
+                    DateRegistered = table.Column<DateTime>(nullable: false),
                     ExpirationDate = table.Column<DateTime>(nullable: false),
                     ClientId = table.Column<string>(nullable: true)
                 },
@@ -225,8 +229,8 @@ namespace BankManagementSystem.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateTime = table.Column<int>(nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
                     ClientId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

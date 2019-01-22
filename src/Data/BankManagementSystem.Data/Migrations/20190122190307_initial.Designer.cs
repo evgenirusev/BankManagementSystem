@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankManagementSystem.Data.Migrations
 {
     [DbContext(typeof(BankManagementSystemDbContext))]
-    [Migration("20190119052449_add_credit_card_date_registered")]
-    partial class add_credit_card_date_registered
+    [Migration("20190122190307_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,11 +27,15 @@ namespace BankManagementSystem.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("Amount");
-
                     b.Property<int>("AssetCategory");
 
                     b.Property<string>("ClientId");
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<decimal>("MonetaryValue");
+
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
@@ -46,6 +50,8 @@ namespace BankManagementSystem.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
+
+                    b.Property<decimal>("Balance");
 
                     b.Property<DateTime>("BirthDate");
 
@@ -147,7 +153,7 @@ namespace BankManagementSystem.Data.Migrations
 
                     b.Property<string>("ClientId");
 
-                    b.Property<int>("DateTime");
+                    b.Property<DateTime>("CreatedAt");
 
                     b.HasKey("Id");
 

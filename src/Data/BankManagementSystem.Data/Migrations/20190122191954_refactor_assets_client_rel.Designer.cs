@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankManagementSystem.Data.Migrations
 {
     [DbContext(typeof(BankManagementSystemDbContext))]
-    [Migration("20190120061714_add_client_balance")]
-    partial class add_client_balance
+    [Migration("20190122191954_refactor_assets_client_rel")]
+    partial class refactor_assets_client_rel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,15 +27,23 @@ namespace BankManagementSystem.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("Amount");
-
                     b.Property<int>("AssetCategory");
 
-                    b.Property<string>("ClientId");
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<decimal>("MonetaryValue");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("OwnerId");
+
+                    b.Property<string>("VendorId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
+                    b.HasIndex("OwnerId");
+
+                    b.HasIndex("VendorId");
 
                     b.ToTable("Assets");
                 });
@@ -291,9 +299,13 @@ namespace BankManagementSystem.Data.Migrations
 
             modelBuilder.Entity("BankManagementSystem.Models.Asset", b =>
                 {
-                    b.HasOne("BankManagementSystem.Models.Client", "Client")
-                        .WithMany("Assets")
-                        .HasForeignKey("ClientId");
+                    b.HasOne("BankManagementSystem.Models.Client", "Owner")
+                        .WithMany("CreatedAssets")
+                        .HasForeignKey("OwnerId");
+
+                    b.HasOne("BankManagementSystem.Models.Client", "Vendor")
+                        .WithMany("PurchasedAssets")
+                        .HasForeignKey("VendorId");
                 });
 
             modelBuilder.Entity("BankManagementSystem.Models.Credit", b =>

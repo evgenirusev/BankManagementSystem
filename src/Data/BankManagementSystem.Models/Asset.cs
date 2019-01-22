@@ -15,7 +15,10 @@
 
         public AssetCategories AssetCategory { get; set; }
 
-        public string ClientId { get; set; }
-        public Client Client { get; set; }
+        public string OwnerId { get; set; }
+        public Client Owner { get; set; }
+
+        public string VendorId { get; set; }
+        public Client Vendor { get; set; }
     }
 }

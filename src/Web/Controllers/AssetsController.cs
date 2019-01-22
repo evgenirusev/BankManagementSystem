@@ -60,12 +60,21 @@ namespace BankManagementSystem.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> PurchaseConfirm(int id, PurchaseAssetDto dto)
         {
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(dto);
             }
+
+            await this.assetService.PurchaseAssetAsync(dto.BindingModel, this.User.Identity.Name);
             // TODO: Impelent me :)
-            return null;
+
+            return this.RedirectToAction(ActionConstants.Success, ControllerConstants.Assets);
+        }
+
+        public IActionResult Success()
+        {
+            return View();
         }
     }
 }

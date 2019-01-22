@@ -24,7 +24,7 @@
                 <td>@asset.CreatedAt</td>
                 <td>@asset.Name</td>
                 <td>@asset.AssetCategory</td>
-                <td>@asset.MonetaryValue</td>
+                <td>$@asset.MonetaryValue</td>
                 <td>
                     <a asp-action="Purchase" asp-route-id="@asset.Id" asp-controller="Assets">
                         <button class="btn btn-warning">Purchase</button>

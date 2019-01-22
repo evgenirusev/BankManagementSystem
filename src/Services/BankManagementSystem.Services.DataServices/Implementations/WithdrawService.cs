@@ -3,9 +3,7 @@ using BankManagementSystem.Common;
 using BankManagementSystem.Data.Common.Repositories;
 using BankManagementSystem.Models;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System;   
 using System.Threading.Tasks;
 
 namespace BankManagementSystem.Services.DataServices.Implementations

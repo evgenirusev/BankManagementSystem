@@ -14,5 +14,7 @@ namespace BankManagementSystem.Services.DataServices
         Task<IEnumerable<AssetViewModel>> GetAllAssetsAsync();
 
         Task<AssetViewModel> FindById(int id);
+
+        Task PurchaseAssetAsync(PurchaseAssetBindingModel model, string username);
     }
 }

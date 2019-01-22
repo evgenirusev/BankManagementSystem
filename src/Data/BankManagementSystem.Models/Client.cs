@@ -8,7 +8,8 @@
     {
         public Client()
         {
-            this.Assets = new List<Asset>();
+            this.CreatedAssets = new List<Asset>();
+            this.PurchasedAssets = new List<Asset>();
             this.Credits = new List<Credit>();
             this.CreditCards = new List<CreditCard>();
             this.Deposits = new List<Deposit>();
@@ -21,7 +22,9 @@
 
         public decimal Balance { get; set; }
 
-        public ICollection<Asset> Assets { get; set; }
+        public ICollection<Asset> CreatedAssets { get; set; }
+
+        public ICollection<Asset> PurchasedAssets { get; set; }
 
         public ICollection<Credit> Credits { get; set; }
 

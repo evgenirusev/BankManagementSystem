@@ -27,17 +27,21 @@ namespace BankManagementSystem.Data.Migrations
 
                     b.Property<int>("AssetCategory");
 
-                    b.Property<string>("ClientId");
-
                     b.Property<DateTime>("CreatedAt");
 
                     b.Property<decimal>("MonetaryValue");
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("OwnerId");
+
+                    b.Property<string>("VendorId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
+                    b.HasIndex("OwnerId");
+
+                    b.HasIndex("VendorId");
 
                     b.ToTable("Assets");
                 });
@@ -293,9 +297,13 @@ namespace BankManagementSystem.Data.Migrations
 
             modelBuilder.Entity("BankManagementSystem.Models.Asset", b =>
                 {
-                    b.HasOne("BankManagementSystem.Models.Client", "Client")
-                        .WithMany("Assets")
-                        .HasForeignKey("ClientId");
+                    b.HasOne("BankManagementSystem.Models.Client", "Owner")
+                        .WithMany("CreatedAssets")
+                        .HasForeignKey("OwnerId");
+
+                    b.HasOne("BankManagementSystem.Models.Client", "Vendor")
+                        .WithMany("PurchasedAssets")
+                        .HasForeignKey("VendorId");
                 });
 
             modelBuilder.Entity("BankManagementSystem.Models.Credit", b =>

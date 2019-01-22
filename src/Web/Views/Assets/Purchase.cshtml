@@ -37,7 +37,7 @@
                 </div>
             }
         </div>
-        <form method="post">
+        <form method="post" asp-action="PurchaseConfirm" asp-controller="Assets">
             <div class="form-group">
                 <input asp-for="BindingModel.AssetId" value="@Model.ViewModel.Id" type="hidden" required />
             </div>
@@ -48,10 +48,13 @@
                 <input asp-for="BindingModel.AssetPrice" value="@Model.ViewModel.MonetaryValue" type="hidden" required />
             </div>
             <div class="form-group">
-                <div>
-                    <input type="submit" value="Purchase" class="btn btn-warning btn-lg btn-block" />
-                </div>
+                <input type="submit" value="Purchase" class="btn btn-warning btn-lg btn-block" />
             </div>
         </form>
     </div>
 </div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

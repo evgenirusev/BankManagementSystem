@@ -24,9 +24,14 @@
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Asset>()
-                .HasOne(a => a.Client)
-                .WithMany(c => c.Assets)
-                .HasForeignKey(a => a.ClientId);
+                .HasOne(a => a.Owner)
+                .WithMany(c => c.CreatedAssets)
+                .HasForeignKey(a => a.OwnerId);
+
+            builder.Entity<Asset>()
+                .HasOne(a => a.Vendor)
+                .WithMany(c => c.PurchasedAssets)
+                .HasForeignKey(a => a.VendorId);
 
             builder.Entity<Credit>()
                 .HasOne(cr => cr.Client)
