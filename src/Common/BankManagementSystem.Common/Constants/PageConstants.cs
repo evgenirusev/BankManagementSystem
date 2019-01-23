@@ -7,5 +7,7 @@
 
         public const string WithdrawIndex = "/Withdraw/Index";
         public const string WithdrawSuccess = "/Withdraw/Success";
+
+        public const string TransactionIndex = "/Transaction/Index";
     }
 }

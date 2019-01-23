@@ -5,6 +5,9 @@ using AutoMapper;
 using BankManagementSystem.Data.Common.Repositories;
 using BankManagementSystem.Models.Enum;
 using Microsoft.AspNetCore.Identity;
+using BankManagementSystem.Common.ViewModels.Transaction;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BankManagementSystem.Services.DataServices.Implementations
 {
@@ -27,6 +30,12 @@ namespace BankManagementSystem.Services.DataServices.Implementations
 
             await this.Repository.AddAsync(transaction);
             await this.Repository.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<TransactionViewModel>> GetAllTransactionsById(string id)
+        {
+            return this.Mapper.Map<IEnumerable<TransactionViewModel>>(this.Repository
+                .All().Where(x => x.ClientId == id));
         }
     }
 }

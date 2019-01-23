@@ -6,6 +6,7 @@
     using BankManagementSystem.Common.BindingModels.Deposit;
     using BankManagementSystem.Common.ViewModels.Asset;
     using BankManagementSystem.Common.ViewModels.CreditCard;
+    using BankManagementSystem.Common.ViewModels.Transaction;
     using BankManagementSystem.Models;
 
     public class AutoMapperProfile : Profile
@@ -15,6 +16,7 @@
             ConfigureCreditCards();
             ConfigureDeposits();
             ConfigureAssets();
+            ConfigureTransactions();
         }
 
         private void ConfigureCreditCards()
@@ -33,6 +35,11 @@
             this.CreateMap<CreateAssetBindingModel, Asset>();
             this.CreateMap<Asset, AssetViewModel>();
             this.CreateMap<AssetViewModel, Asset>();
+        }
+
+        private void ConfigureTransactions()
+        {
+            this.CreateMap<Transaction, TransactionViewModel>();
         }
     }
 }

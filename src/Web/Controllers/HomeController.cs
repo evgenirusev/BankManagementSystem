@@ -1,6 +1,4 @@
-﻿namespace BankManagementSystem.Web.
-    
-    s
+﻿namespace BankManagementSystem.Web
 {
     using System.Diagnostics;
     using Microsoft.AspNetCore.Mvc;
