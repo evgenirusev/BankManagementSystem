@@ -2,6 +2,7 @@
 {
     using BankManagementSystem.Common.BindingModels.CreditCard;
     using BankManagementSystem.Common.Constants;
+    using BankManagementSystem.Common.Helpers;
     using BankManagementSystem.Models;
     using BankManagementSystem.Services.DataServices;
     using Microsoft.AspNetCore.Authorization;
@@ -42,9 +43,8 @@
 
         public async Task<IActionResult> Index()
         {
-            var user = await this.userManager.FindByNameAsync(this.User.Identity.Name);
-            var creditCards = (await this.creditCardService.GetAllCreditCardsAsync())
-                .Where(x => x.ClientId == user.Id).ToList();
+            string clientId = await ClientHelper.GetUserIdAsync(this.User.Identity.Name, this.userManager);
+            var creditCards = await this.creditCardService.GetAllCreditCardsAsync(clientId);
             return View(creditCards);
         }
     }

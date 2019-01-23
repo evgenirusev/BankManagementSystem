@@ -9,6 +9,6 @@ namespace BankManagementSystem.Services.DataServices
     {
         Task<int> Create(CreateCreditCardBindingModel model, string username);
 
-        Task<IEnumerable<CreditCardViewModel>> GetAllCreditCardsAsync();
+        Task<IEnumerable<CreditCardViewModel>> GetAllCreditCardsAsync(string id);
     }
 }

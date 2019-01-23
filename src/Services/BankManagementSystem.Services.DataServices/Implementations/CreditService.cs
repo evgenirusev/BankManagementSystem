@@ -1,10 +1,13 @@
 ﻿namespace BankManagementSystem.Services.DataServices.Implementations
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using AutoMapper;
     using BankManagementSystem.Common.BindingModels.Credit;
     using BankManagementSystem.Common.Helpers;
+    using BankManagementSystem.Common.ViewModels.Credit;
     using BankManagementSystem.Data.Common.Repositories;
     using BankManagementSystem.Models;
     using Microsoft.AspNetCore.Identity;
@@ -27,6 +30,12 @@
 
             await this.Repository.AddAsync(credit);
             await this.Repository.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<CreditViewModel>> GetAllCreditsById(string clientId)
+        {
+            return Mapper.Map<IEnumerable<CreditViewModel>>(Repository.All()
+                .Where(x => x.ClientId == clientId));
         }
     }
 }

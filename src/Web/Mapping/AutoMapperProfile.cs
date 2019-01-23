@@ -5,6 +5,7 @@
     using BankManagementSystem.Common.BindingModels.CreditCard;
     using BankManagementSystem.Common.BindingModels.Deposit;
     using BankManagementSystem.Common.ViewModels.Asset;
+    using BankManagementSystem.Common.ViewModels.Credit;
     using BankManagementSystem.Common.ViewModels.CreditCard;
     using BankManagementSystem.Common.ViewModels.Transaction;
     using BankManagementSystem.Models;
@@ -17,6 +18,7 @@
             ConfigureDeposits();
             ConfigureAssets();
             ConfigureTransactions();
+            ConfigureCredits();
         }
 
         private void ConfigureCreditCards()
@@ -40,6 +42,11 @@
         private void ConfigureTransactions()
         {
             this.CreateMap<Transaction, TransactionViewModel>();
+        }
+
+        private void ConfigureCredits()
+        {
+            this.CreateMap<Credit, CreditViewModel>();
         }
     }
 }

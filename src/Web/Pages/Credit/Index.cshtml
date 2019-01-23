@@ -1,0 +1,32 @@
+﻿@page
+@model BankManagementSystem.Web.Pages.Credit.IndexModel
+@{
+    ViewData["Title"] = "Credits";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr class="hr-2" />
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Financial Resource Amount</th>
+            <th>Payment Period</th>
+            <th>Percent Interest</th>
+            <th>Total Debt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var credit in Model.ViewModels)
+        {
+            <tr>
+                <td>@credit.FinancialResourceAmount</td>
+                <td>@credit.PaymentPeriod</td>
+                <td>@credit.PercentInterest</td>
+                <td>
+                    @(credit.FinancialResourceAmount * (1 + credit.PercentInterest / 100))
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -40,8 +40,7 @@
         public async Task OnGetAsync()
         {
             Client user = await this.userManager.FindByNameAsync(this.User.Identity.Name);
-            var cardsFromDb = (await this.creditCardService.GetAllCreditCardsAsync())
-                .Where(x => x.ClientId == user.Id).ToList();
+            var cardsFromDb = (await this.creditCardService.GetAllCreditCardsAsync(user.Id));
 
             foreach (CreditCardViewModel creditCard in cardsFromDb)
             {

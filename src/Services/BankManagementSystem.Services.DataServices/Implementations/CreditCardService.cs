@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using AutoMapper;
     using BankManagementSystem.Common;
@@ -36,9 +37,10 @@
             return creditCard.Id;
         }
 
-        public async Task<IEnumerable<CreditCardViewModel>> GetAllCreditCardsAsync()
+        public async Task<IEnumerable<CreditCardViewModel>> GetAllCreditCardsAsync(string id)
         {
-            return this.Mapper.Map<IEnumerable<CreditCardViewModel>>(this.Repository.All());
+            return this.Mapper.Map<IEnumerable<CreditCardViewModel>>(
+                this.Repository.All().Where(x => x.ClientId == id));
         }
     }
 }
