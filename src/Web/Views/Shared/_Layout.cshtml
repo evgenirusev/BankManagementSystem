@@ -48,8 +48,15 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-controller="Assets" asp-action="Index">Assets</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index">Credit</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Credit
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="customersDropdown">
+                            <a class="dropdown-item" asp-page="@PageConstants.CreditIndex">My Credits</a>
+                            <a class="dropdown-item" asp-page="@PageConstants.CreditCreate">Create Credit</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="@PageConstants.TransactionIndex">Transactions</a>
