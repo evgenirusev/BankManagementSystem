@@ -8,17 +8,22 @@ using BankManagementSystem.Common.BindingModels.Asset;
 using BankManagementSystem.Common.ViewModels.Asset;
 using BankManagementSystem.Data.Common.Repositories;
 using BankManagementSystem.Models;
+using BankManagementSystem.Models.Enum;
 using Microsoft.AspNetCore.Identity;
 
 namespace BankManagementSystem.Services.DataServices.Implementations
 {
     public class AssetService : BaseService<Asset>, IAssetService
     {
+        private ITransactionService transactionService;
+
         public AssetService(IRepository<Asset> repository,
             IMapper mapper,
-            UserManager<Client> userManager)
+            UserManager<Client> userManager,
+            ITransactionService transactionService)
             : base(repository, mapper, userManager)
         {
+            this.transactionService = transactionService;
         }
 
         public async Task<int> Create(CreateAssetBindingModel model, string username)
@@ -58,8 +63,13 @@ namespace BankManagementSystem.Services.DataServices.Implementations
             Asset assetEntity = this.Repository.FindById(model.AssetId);
             assetEntity.Owner = client;
             client.PurchasedAssets.Add(assetEntity);
-            
+
+            await this.transactionService.CreateTransactionAsync(client.Id,
+                model.AssetPrice,
+                TransactionType.Purchase);
+
             await this.Repository.SaveChangesAsync();
         }
+
     }
 }

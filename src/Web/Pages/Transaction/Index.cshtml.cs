@@ -4,12 +4,14 @@
     using BankManagementSystem.Common.ViewModels.Transaction;
     using BankManagementSystem.Models;
     using BankManagementSystem.Services.DataServices;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
+    [Authorize]
     public class IndexModel : PageModel
     {
         ITransactionService transactionService;

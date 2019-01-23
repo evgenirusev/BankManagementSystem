@@ -17,15 +17,12 @@ namespace BankManagementSystem.Web.Controllers
     {
 
         private IAssetService assetService;
-        private ITransactionService transactionService;
         UserManager<Client> userManager;
 
         public AssetsController(IAssetService assetService,
-            ITransactionService transactionService,
             UserManager<Client> userManager)
         {
             this.assetService = assetService;
-            this.transactionService = transactionService;
             this.userManager = userManager;
         }
 
@@ -75,10 +72,6 @@ namespace BankManagementSystem.Web.Controllers
 
             string clientId = await ClientHelper.
                 GetUserIdAsync(this.User.Identity.Name, this.userManager);
-
-            await this.transactionService.CreateTransactionAsync(clientId,
-                DTO.BindingModel.AssetPrice,
-                TransactionType.Purchase);
             
             return this.RedirectToAction(ActionConstants.Success, ControllerConstants.Assets);
         }
