@@ -4,14 +4,16 @@ using BankManagementSystem.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BankManagementSystem.Data.Migrations
 {
     [DbContext(typeof(BankManagementSystemDbContext))]
-    partial class BankManagementSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190123045423_add_transaction_type")]
+    partial class add_transaction_type
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,6 +175,8 @@ namespace BankManagementSystem.Data.Migrations
                     b.Property<string>("ClientId");
 
                     b.Property<DateTime>("CreatedAt");
+
+                    b.Property<string>("Description");
 
                     b.Property<decimal>("Price");
 

@@ -1,7 +1,8 @@
-﻿using System;
+﻿using BankManagementSystem.Models.Enum;
 using System.Threading.Tasks;
 using BankManagementSystem.Common.BindingModels.Asset;
 using BankManagementSystem.Common.Constants;
+using BankManagementSystem.Common.Helpers;
 using BankManagementSystem.Common.ViewModels.Asset;
 using BankManagementSystem.Models;
 using BankManagementSystem.Services.DataServices;
@@ -16,11 +17,15 @@ namespace BankManagementSystem.Web.Controllers
     {
 
         private IAssetService assetService;
+        private ITransactionService transactionService;
         UserManager<Client> userManager;
 
-        public AssetsController(IAssetService assetService, UserManager<Client> userManager)
+        public AssetsController(IAssetService assetService,
+            ITransactionService transactionService,
+            UserManager<Client> userManager)
         {
             this.assetService = assetService;
+            this.transactionService = transactionService;
             this.userManager = userManager;
         }
 
@@ -52,7 +57,7 @@ namespace BankManagementSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Purchase(int id, PurchaseAssetDto DTO)
         {
-            this.PopulateDTOAsync(DTO, id);
+            await this.PopulateDTOAsync(DTO, id);
             return View(DTO);
         }
 
@@ -63,12 +68,17 @@ namespace BankManagementSystem.Web.Controllers
             if (!this.ModelState.IsValid)
             {
                 await this.PopulateDTOAsync(DTO, id);
-                return this.View("Purchase", DTO);
+                return this.View(ViewNameConstants.Purchase, DTO);
             }
 
             await this.assetService.PurchaseAssetAsync(DTO.BindingModel, this.User.Identity.Name);
 
-            // TODO: Impelent transaction persistence
+            string clientId = await ClientHelper.
+                GetUserIdAsync(this.User.Identity.Name, this.userManager);
+
+            await this.transactionService.CreateTransactionAsync(clientId,
+                DTO.BindingModel.AssetPrice,
+                TransactionType.Purchase);
             
             return this.RedirectToAction(ActionConstants.Success, ControllerConstants.Assets);
         }
@@ -82,8 +92,8 @@ namespace BankManagementSystem.Web.Controllers
         {
             var viewModel = await this.assetService.FindById(id);
             DTO.ViewModel = viewModel;
-            DTO.CurrentClientBalance =
-                (await this.userManager.FindByNameAsync(this.User.Identity.Name)).Balance;
+            DTO.CurrentClientBalance = 
+                await ClientHelper.GetUserBalance(this.User.Identity.Name, this.userManager);
             return DTO;
         }
     }
