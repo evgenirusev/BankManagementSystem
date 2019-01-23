@@ -12,5 +12,6 @@
 
         public const string CreditIndex = "/Credit/Index";
         public const string CreditCreate = "/Credit/Create";
+        public const string CreditSuccess = "/Credit/Success";
     }
 }

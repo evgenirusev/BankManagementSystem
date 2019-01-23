@@ -28,7 +28,6 @@
             await InitViewModels();
         }
 
-
         public List<TransactionViewModel> TransactionViewModels { get; set; }
 
         private async Task InitViewModels()
