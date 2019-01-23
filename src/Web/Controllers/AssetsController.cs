@@ -14,6 +14,7 @@ namespace BankManagementSystem.Web.Controllers
     [Authorize]
     public class AssetsController : Controller
     {
+
         private IAssetService assetService;
         UserManager<Client> userManager;
 
@@ -47,34 +48,43 @@ namespace BankManagementSystem.Web.Controllers
             var assets = (await this.assetService.GetAllAssetsAsync());
             return View(assets);
         }
-        
-        public async Task<IActionResult> Purchase(int id, PurchaseAssetDto dto)
+
+        [HttpGet]
+        public async Task<IActionResult> Purchase(int id, PurchaseAssetDto DTO)
         {
-            var viewModel = await this.assetService.FindById(id);
-            dto.ViewModel = viewModel;
-            dto.CurrentClientBalance = 
-                (await this.userManager.FindByNameAsync(this.User.Identity.Name)).Balance;
-            return View(dto);
+            this.PopulateDTOAsync(DTO, id);
+            return View(DTO);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PurchaseConfirm(int id, PurchaseAssetDto dto)
+        [HttpPost("Assets/Purchase/{id:int}")]
+        public async Task<IActionResult> PurchaseConfirm(int id, PurchaseAssetDto DTO)
         {
 
             if (!this.ModelState.IsValid)
             {
-                return this.View(dto);
+                await this.PopulateDTOAsync(DTO, id);
+                return this.View("Purchase", DTO);
             }
 
-            await this.assetService.PurchaseAssetAsync(dto.BindingModel, this.User.Identity.Name);
-            // TODO: Impelent me :)
+            await this.assetService.PurchaseAssetAsync(DTO.BindingModel, this.User.Identity.Name);
 
+            // TODO: Impelent transaction persistence
+            
             return this.RedirectToAction(ActionConstants.Success, ControllerConstants.Assets);
         }
 
         public IActionResult Success()
         {
             return View();
+        }
+
+        private async Task<PurchaseAssetDto> PopulateDTOAsync(PurchaseAssetDto DTO, int id)
+        {
+            var viewModel = await this.assetService.FindById(id);
+            DTO.ViewModel = viewModel;
+            DTO.CurrentClientBalance =
+                (await this.userManager.FindByNameAsync(this.User.Identity.Name)).Balance;
+            return DTO;
         }
     }
 }
