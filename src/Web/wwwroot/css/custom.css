@@ -1,0 +1,31 @@
+﻿.main {
+    height: 800px;
+    width: 100%;
+    background-image: url(http://www.wallpapers4u.org/wp-content/uploads/hand_card_money_online_purchase_laptop_80035_1920x1080.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+}
+
+.container {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: rgba(255,255,255, .94);
+    border-radius: 25px;
+}
+
+.home-page h1, .home-page h3, .home-page h5, .home-page p {
+    text-shadow: 2px 2px 2px grey, 2px 2px 2px grey, 2px 2px 2px grey;
+}
+
+/*TODO: Refactor*/
+.register-form {
+    width: 40% !important;
+}
+
+@media only screen and (max-width: 950px) {
+    .register-form {
+        width: 100% !important;
+    }
+}

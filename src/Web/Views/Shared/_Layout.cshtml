@@ -13,9 +13,11 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
-              integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE="/>
+              integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -62,7 +64,7 @@
                         <a class="nav-link text-dark" asp-area="" asp-page="@PageConstants.TransactionIndex">Transactions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -72,16 +74,45 @@
             </div>
         </nav>
     </header>
-    <div class="container pb-3">
+    <div class="main">
         <partial name="_CookieConsentPartial" />
         @RenderBody()
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - BankManagementSystem.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="page-footer font-small text-white border-top text-dark">
+        <div class="container-fluid text-center text-md-left pt-3">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5>BankManagementSystem</h5>
+                    <p>
+                        Bank Management System is an open source ASP.NET CORE based web application with a user-friendly
+                        UI developed to assist clients of a bank to manage their financial resources, credit cards, transactions,
+                        financial assets and credits.
+                    </p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3"></div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase">Reach out</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>Email: evg.rusev@gmail.com</p>
+                        </li>
+                        <li>
+                            <a href="https://github.com/rusev9/BankManagementSystem" class="text-dark">
+                                <i class="fab fa fa-github"></i> Source code
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3">
+            © 2019 Copyright:
+            <a href="/">BankManagementSystem</a>
         </div>
     </footer>
+
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

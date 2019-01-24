@@ -1,28 +1,31 @@
 ﻿@page
 @model BankManagementSystem.Web.Pages.Transaction.IndexModel
+
 @{
     ViewData["Title"] = "Transactions";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
 
-<hr class="hr-2" />
-<table class="table table-hover table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Created On</th>
-            <th>Transation Type</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var transaction in Model.TransactionViewModels)
-        {
+    <hr class="hr-2" />
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
             <tr>
-                <td>@transaction.CreatedAt</td>
-                <td>@transaction.Type</td>
-                <td>@transaction.Price</td>
+                <th>Created On</th>
+                <th>Transation Type</th>
+                <th>Price</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model.TransactionViewModels)
+            {
+                <tr>
+                    <td>@transaction.CreatedAt</td>
+                    <td>@transaction.Type</td>
+                    <td>@transaction.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

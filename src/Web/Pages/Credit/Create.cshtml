@@ -1,13 +1,13 @@
 ﻿@page
 @model BankManagementSystem.Web.Pages.Credit.CreateModel
+
 @{
     ViewData["Title"] = "Credit";
 }
 
-<h1>Credit</h1>
-
-<div class="row">
-    <div class="col-md-6">
+<div class="row w-100 m-0">
+    <div class="offset-md-6 col-md-5 container w-100">
+        <h1>Credit</h1>
         <hr class="hr-2" />
         <form method="post">
             <div class="form-group">
@@ -44,8 +44,7 @@
         </form>
     </div>
 </div>
-
-@section Scripts
-    {
-    <partial name="_ValidationScriptsPartial" />
-}
+    @section Scripts
+        {
+        <partial name="_ValidationScriptsPartial" />
+    }
