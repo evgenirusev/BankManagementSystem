@@ -9,23 +9,30 @@
     <h1>@ViewData["Title"]</h1>
 
     <hr class="hr-2" />
-    <table class="table table-hover table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Created On</th>
-                <th>Transation Type</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var transaction in Model.TransactionViewModels)
-            {
+    @if (Model.TransactionViewModels.Count() > 0)
+    { 
+        <table class="table table-hover table-striped table-bordered">
+            <thead>
                 <tr>
-                    <td>@transaction.CreatedAt</td>
-                    <td>@transaction.Type</td>
-                    <td>@transaction.Price</td>
+                    <th>Created On</th>
+                    <th>Transation Type</th>
+                    <th>Price</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var transaction in Model.TransactionViewModels)
+                {
+                    <tr>
+                        <td>@transaction.CreatedAt</td>
+                        <td>@transaction.Type</td>
+                        <td>@transaction.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h4><i>You haven't made any transactions yet.</i></h4>
+    }
 </div>

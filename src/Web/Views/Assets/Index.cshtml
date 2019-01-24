@@ -1,36 +1,44 @@
 ﻿@model IEnumerable<AssetViewModel>
 
 @{
-    ViewData["Title"] = "All Assets";
+    ViewData["Title"] = "Assets For Sale";
 }
+
 <div class="container">
     <h1>@ViewData["Title"]</h1>
     <hr class="hr-2" />
-    <table class="table table-hover table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Created On</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Monetary Value</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var asset in Model)
-            {
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-hover table-striped table-bordered">
+            <thead>
                 <tr>
-                    <td>@asset.CreatedAt</td>
-                    <td>@asset.Name</td>
-                    <td>@asset.AssetCategory</td>
-                    <td>$@asset.MonetaryValue</td>
-                    <td>
-                        <a asp-action="Purchase" asp-route-id="@asset.Id" asp-controller="Assets">
-                            <button class="btn btn-warning">Purchase</button>
-                        </a>
-                    </td>
+                    <th>Created On</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Monetary Value</th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var asset in Model)
+                {
+                    <tr>
+                        <td>@asset.CreatedAt</td>
+                        <td>@asset.Name</td>
+                        <td>@asset.AssetCategory</td>
+                        <td>$@asset.MonetaryValue</td>
+                        <td>
+                            <a asp-action="Purchase" asp-route-id="@asset.Id" asp-controller="Assets">
+                                <button class="btn btn-warning">Purchase</button>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h4><i>There are no credit assets registered yet. Consider using administrator credentials to create assets.</i></h4>
+    }
 </div>

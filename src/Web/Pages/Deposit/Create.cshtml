@@ -9,24 +9,32 @@
     <div class="offset-md-6 col-md-5 container w-100">
         <h2>@ViewData["Title"]</h2>
         <hr class="hr-2" />
-        <form method="post">
-            <div class="form-group">
+        @if (Model.CreditCardItems.Count > 0)
+        {
+            <form method="post">
                 <div class="form-group">
-                    <label asp-for="Input.CreditCardId">Credit Card to Deposit From</label>
-                    <select asp-for="Input.CreditCardId" asp-items="@Model.CreditCardItems" class="form-control form-control-lg"></select>
-                    <span asp-validation-for="Input.CreditCardId" class="text-danger"></span>
+                    <div class="form-group">
+                        <label asp-for="Input.CreditCardId">Credit Card to Deposit From</label>
+                        <select asp-for="Input.CreditCardId" asp-items="@Model.CreditCardItems" class="form-control form-control-lg"></select>
+                        <span asp-validation-for="Input.CreditCardId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Amount"></label>
+                        <input asp-for="Input.Amount" type="number" required placeholder="Enter amount..." class="form-control form-control-lg" />
+                        <span asp-validation-for="Input.Amount" class="text-danger"></span>
+                    </div>
+                    <hr />
+                    <div>
+                        <input type="submit" value="Deposit" class="btn btn-warning btn-lg btn-block" />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Input.Amount"></label>
-                    <input asp-for="Input.Amount" type="number" required placeholder="Enter amount..." class="form-control form-control-lg" />
-                    <span asp-validation-for="Input.Amount" class="text-danger"></span>
-                </div>
-                <hr />
-                <div>
-                    <input type="submit" value="Deposit" class="btn btn-warning btn-lg btn-block" />
-                </div>
-            </div>
-        </form>
+            </form>
+        }
+        else
+        {
+            <h4><i>You cannot make a deposit without a credit card. Consider 
+                <a asp-controller="CreditCards" asp-action="Create">registering</a> one yourself.</i></h4>
+        }
     </div>
 </div>
 
