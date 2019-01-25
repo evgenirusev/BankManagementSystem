@@ -1,8 +1,8 @@
 ﻿namespace BankManagementSystem.Web
 {
     using System.Diagnostics;
+    using BankManagementSystem.Common.ViewModels;
     using Microsoft.AspNetCore.Mvc;
-    using BankManagementSystem.Models;
 
     public class HomeController : Controller
     {
