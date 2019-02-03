@@ -61,7 +61,6 @@ namespace BankManagementSystem.Web.Controllers
         [HttpPost("Assets/Purchase/{id:int}")]
         public async Task<IActionResult> PurchaseConfirm(int id, PurchaseAssetDto DTO)
         {
-
             if (!this.ModelState.IsValid)
             {
                 await this.PopulateDTOAsync(DTO, id);
