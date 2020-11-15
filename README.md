@@ -21,4 +21,3 @@ Steps to run
 * ASP.NET MVC Core 2.2
 * Entity Framework Core 2.2
 * ASP.NET Identity Core 2.2
-
