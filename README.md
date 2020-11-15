@@ -4,9 +4,6 @@ Digital banking system application, implementing a monolithic application archit
 
 ## Database Schema:
 ![Sorry, error loading image of diagram](DBDiagram.png)
-![Sorry, error loading image of diagram](Register.png)
-![Sorry, error loading image of diagram](Login.png)
-![Sorry, error loading image of diagram](Homepage.png)
 
 ## Visual Studio 2017 and SQL Server
 Prerequisites
@@ -24,3 +21,7 @@ Steps to run
 * ASP.NET MVC Core 2.2
 * Entity Framework Core 2.2
 * ASP.NET Identity Core 2.2
+
+![Sorry, error loading image of diagram](Register.png)
+![Sorry, error loading image of diagram](Login.png)
+![Sorry, error loading image of diagram](Homepage.png)
