@@ -3,7 +3,10 @@
 Digital banking system application, implementing a monolithic application architecture.
 
 ## Database Schema:
-![Sorry, error loading image of diagram](./demo/DB Diagram.png)
+![Sorry, error loading image of diagram](DBDiagram.png)
+![Sorry, error loading image of diagram](Register.png)
+![Sorry, error loading image of diagram](Login.png)
+![Sorry, error loading image of diagram](Homepage.png)
 
 ## Visual Studio 2017 and SQL Server
 Prerequisites
