@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{8F3D5302-600C-4349-A690-C087953325D0}"
 EndProject
@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankManagementSystem.Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankManagementSystem.Web", "Web\BankManagementSystem.Web.csproj", "{76E7A94D-E3FA-4D39-84D0-927091635EA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankManagementSystem.Data.Common", "BankManagementSystem.Data.Common\BankManagementSystem.Data.Common.csproj", "{25461138-FAAE-4A82-ADC3-36AA7901D980}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankManagementSystem.Data.Common", "BankManagementSystem.Data.Common\BankManagementSystem.Data.Common.csproj", "{25461138-FAAE-4A82-ADC3-36AA7901D980}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
